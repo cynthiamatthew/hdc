@@ -299,10 +299,16 @@ var loadInstall = function(allThing){
         //     $('#eqTypeHard').attr("class",'off');
         //     $('#eqTypeSoft').attr("class",'on');
         // }
-        console.log(allObjs.equipment.eqType);
+       
         $("#eqTypeHard").html(isUndefined(allObjs.equipment.eqType));
         $('#eqStyle').html(isUndefined(allObjs.equipment.eqStyle));
         var software_txt;
+        if($("#eqTypeHard").html()=="硬件数据通")
+          {$("#softCodeOrVersion").html("硬件编号");}
+        else if($("#eqTypeHard").html()=="软件数据通")
+          {$("#softCodeOrVersion").html("软件版本");}
+        else
+          {$("#softCodeOrVersion").parents("li").css("display","none");}
         if(isUndefined(allObjs.equipment.softwareVersion))
             {software_txt=allObjs.equipment.softwareVersion;}
          if(isUndefined(allObjs.equipment.hardwareId))
@@ -633,7 +639,7 @@ var submit = function() {
         'equipment.eqStyle': $("#eqStyle").html()
           //          ,'hardwareId':
           ,
-        'equipment.softwareVersion': ($('#eqTypeHard').html()!="硬件数据通" ? $('#softwareVersion').val():""),
+        'equipment.softwareVersion': ($('#eqTypeHard').html()=="软件数据通" ? $('#softwareVersion').val():""),
         'equipment.hardwareId': ($('#eqTypeHard').html()=="硬件数据通"? $('#softwareVersion').val():""),
         'equipment.proId':( undefined == allObjs.project?"":allObjs.project.proId),
         'equipment.shopId': $('#shopCode').html(),
@@ -743,7 +749,7 @@ var submit = function() {
         'equipment.eqStyle': $("#eqStyle").html()
           //          ,'hardwareId':
           ,
-         'equipment.softwareVersion': ($('#eqTypeHard').html()!="硬件数据通" ? $('#softwareVersion').val():""),
+         'equipment.softwareVersion': ($('#eqTypeHard').html()=="软件数据通" ? $('#softwareVersion').val():""),
         'equipment.hardwareId': ($('#eqTypeHard').html()=="硬件数据通"? $('#softwareVersion').val():""),
         'equipment.proId': $('#proName').html(),
         'equipment.shopId': $('#shopCode').html(),
