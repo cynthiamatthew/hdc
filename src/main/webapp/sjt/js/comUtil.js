@@ -21,7 +21,7 @@ var readOnly = function(id){
 function form_empty(config){
 	m_loading.remove();
     if(config.code==""  )
-    {app.alert(config.which+":"+config.code + ",不能为空",1);
+    {app.alert(config.which+":"+config.code + "不能为空",1);
 	 return true;
     }
     else if(config.which="商铺名称")
