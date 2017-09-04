@@ -566,6 +566,10 @@ var submit = function() {
         {swiper2.slideTo(4, 0, true); 
         return;
          }   
+         if(form_empty({code:$('#installTime').val(), which:"安装日期"}))
+        {swiper2.slideTo(4, 0, true); 
+        return;
+         }   
          if(form_empty({code:$('#priBrand').val(), which:"打印机品牌"}))
         {swiper2.slideTo(3, 0, true);
            $("#g-popupOk").bind("click",function(){ $('#priBrand').focus();})  
